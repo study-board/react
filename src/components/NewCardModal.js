@@ -92,7 +92,7 @@ const NewCardModal = (props) => {
             >
                 <div>
                     <b>This is how your card will look.</b><br />
-                    <code>
+                    <code style={{fontSize: "0.8rem"}}>
                         Width: {EFWidth}px<br />
                         Height: {EFHeight}px <br/>
                     </code>
