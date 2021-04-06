@@ -13,9 +13,9 @@ import './styles/styles.css';
 function App() {
 
   const [cards, updateCards] = useState(config.defaultCards);
-  const [backgroundVideoUrl, updateBgURL] = useState(config.defaultBgVideoURL);
 
-  const x = () => (updateBgURL);
+  // eslint-disable-next-line no-unused-vars
+  const [backgroundVideoUrl, updateBgURL] = useState(config.defaultBgVideoURL);
 
   const [isModalOpen, setIsOpen] = useState(false);
 
