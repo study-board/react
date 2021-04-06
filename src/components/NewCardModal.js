@@ -68,7 +68,7 @@ const NewCardModal = (props) => {
                     <tr>
 
                         <td><label htmlFor="width">Width of card</label></td>
-                        <td><input required={true} type="range" id="width" step={1} value={500} min={100} max={700} onInput={(e) => setEFWidth(e.target.value)} /></td>
+                        <td><input required={true} type="range" id="width" step={1} value={500} min={100} max={900} onInput={(e) => setEFWidth(e.target.value)} /></td>
 
                     </tr>
 
@@ -90,7 +90,13 @@ const NewCardModal = (props) => {
                     width: EFWidth + "px"
                 }}
             >
-                <b>This is how your frame will look</b>
+                <div>
+                    <b>This is how your card will look.</b><br />
+                    <code>
+                        Width: {EFWidth}px<br />
+                        Height: {EFHeight}px <br/>
+                    </code>
+                </div>
             </div> <br />
             
             <input type="submit" className="good button" value="Go" />
