@@ -15,6 +15,8 @@ function App() {
   const [cards, updateCards] = useState(config.defaultCards);
   const [backgroundVideoUrl, updateBgURL] = useState(config.defaultBgVideoURL);
 
+  const x = () => (updateBgURL);
+
   const [isModalOpen, setIsOpen] = useState(false);
 
   const afterOpenModal = () => {};
