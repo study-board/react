@@ -42,15 +42,28 @@ function App() {
 
       <div className="cardsContainer">
 
-        { cards.map((card, index) => (
+        { cards.map((card, index) => (localStorage.getItem(card.showOnce) ? null : (
 
-          <Card width={card.width} height={card.height} title={card.title} url={card.url} key={index} removable={card.removeable} />
+          <Card
+            width={card.width}
+            height={card.height}
+            title={card.title}
+            url={card.url}
+            key={index}
+            permanent={card.permanent}
+            removeAction={ () => {
+              if (card.showOnce) {
+                localStorage.setItem(card.showOnce, true);
+              }
+              updateCards(cards.filter((c) => (c !== card)))
+            } }
+          />
 
-        )) }
+        ))) }
 
       </div>
 
-      <button className="newCard" onClick={openModal}>Add new card</button>
+      <button className="button newCard" onClick={openModal}>Add new card</button>
 
     </div>
   );

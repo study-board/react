@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Modal from 'react-modal';
+import config from '../config/config';
 
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement('#root')
@@ -24,6 +25,7 @@ const NewCardModal = (props) => {
     
     const [EFHeight, setEFHeight] = useState(300);
     const [EFWidth, setEFWidth] = useState(500);
+    const [EFSrc, setEFSrc] = useState("assets/cards/modal_example.html");
 
     const submitNewCardForm = (e) => {
 
@@ -31,12 +33,22 @@ const NewCardModal = (props) => {
         closeModal();
         updateCards(
             cards.concat({
-                url: document.getElementById("new").value,
+                url: EFSrc,
                 removable: true,
                 width: EFWidth,
                 height: EFHeight
             })
         )
+
+    };
+
+    const updateSimulation = (e) => {
+
+        if (e.target.checkValidity()) {
+            setEFSrc(e.target.value);
+        } else {
+            setEFSrc("assets/cards/modal_example.html#invalid")
+        }
 
     }
     
@@ -61,21 +73,39 @@ const NewCardModal = (props) => {
                     <tr>
 
                         <td><label htmlFor="new">Card embed URL</label></td>
-                        <td><input required={true} type="url" id="new" /></td>
+                        <td><input value={EFSrc} required={true} onChange={updateSimulation} type="url" id="new" /></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td class="examples" colSpan={2}>
+
+                            Examples: 
+                            { config.exampleCards.map((c) => (
+                                <button className="link-button" onClick={(e) => {
+                                    c.height && setEFHeight(c.height);
+                                    c.width && setEFWidth(c.width);
+                                    c.src && setEFSrc(c.src);
+                                    e.preventDefault();
+                                }}>{c.displayName}</button>
+                            )) }
+
+                        </td>
 
                     </tr>
 
                     <tr>
 
                         <td><label htmlFor="width">Width of card</label></td>
-                        <td><input required={true} type="range" id="width" step={1} value={500} min={100} max={900} onInput={(e) => setEFWidth(e.target.value)} /></td>
+                        <td><input required={true} type="range" id="width" step={1} value={EFWidth} min={100} max={900} onInput={(e) => setEFWidth(e.target.value)} /></td>
 
                     </tr>
 
                     <tr>
 
                         <td><label htmlFor="height">Height of card</label></td>
-                        <td><input required={true} type="range" id="height" step={1} value={300} min={100} max={700} onInput={(e) => setEFHeight(e.target.value)} /></td>
+                        <td><input required={true} type="range" id="height" step={1} value={EFHeight} min={100} max={700} onInput={(e) => setEFHeight(e.target.value)} /></td>
 
                     </tr>
 
@@ -83,7 +113,19 @@ const NewCardModal = (props) => {
 
             </table>
 
-            <div
+            <h3>Card simulation</h3>
+
+            <iframe
+                className="example-frame"
+                src={EFSrc} 
+                style={{
+                    height: EFHeight + "px",
+                    width: EFWidth + "px"
+                }}
+                title="Example Frame"
+            />
+
+            {/* <div
                 className="example-frame"
                 style={{
                     height: EFHeight + "px",
@@ -97,10 +139,10 @@ const NewCardModal = (props) => {
                         Height: {EFHeight}px <br/>
                     </code>
                 </div>
-            </div> <br />
+            </div> <br /> */}
             
             <input type="submit" className="good button" value="Go" />
-            <button className="bad" onClick={closeModal}>Close</button>
+            <button className="bad button" onClick={closeModal}>Close</button>
 
         </form>
         

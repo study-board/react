@@ -24,7 +24,7 @@ body {
 
 }
 
-button, .button {
+.button {
 
   font-family: var(--font);
   font-size: 1rem;
@@ -39,25 +39,38 @@ button, .button {
 
 }
 
-button.neutral, .button.neutral {
+.button.neutral {
   background-color: #FFF;
 }
 
-button.good, .button.good {
+.button.good {
 
   background-color: #04E762;
   color: black;
 
 }
 
-button.bad, .button.bad {
+.button.bad {
   background-color: #DD403A;
   color: white;
 }
 
-button.warn, .button.warn { 
+.button.warn { 
   background-color: #FFB100;
   color: black;
+}
+
+.link-button {
+  color: blue;
+  text-decoration: underline;
+  display: inline;
+  background: none;
+  background-color: none;
+  border: none;
+  padding: none; margin: none;
+  cursor: pointer;
+
+  font-family: var(--font);
 }
 
 .App .newCard {
@@ -126,6 +139,35 @@ div.card div.drag-marker {
 
 }
 
+div.card button.close-marker {
+  display: block;
+  z-index: 999;
+
+  cursor: pointer;
+  position: absolute;
+
+  top: 10px;
+  left: 10px;
+
+  background-color: transparent;
+
+  color: #DD403A;
+
+  padding: 0;
+  margin: 0;
+
+  font-weight: bolder;
+  font-size: 1.3rem;
+
+  border: none;
+  opacity: 0.5;
+  transition: 0.25s;
+}
+
+div.card button.close-marker:hover {
+  opacity: 1;
+}
+
 div.card div.drag-marker:hover, div.card div.drag-marker:focus, div.card div.drag-marker:active {
   transform: scale(3);
   opacity: 1;
@@ -148,21 +190,29 @@ input[type=range] {
 }
 
 .example-frame {
+
+  display: block;
+  overflow: hidden;
+
   margin: 10px 0;
-  background-color: #00A1E4;
+  /* background-color: #00A1E4; */
   color: white;
 
   border: 1px solid #b3b3b3;
   box-sizing: border-box;
-  padding: 20px;
+  /* padding: 20px; */
 
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 
   border-radius: 10px;
 }
 
 .example-frame b {
   padding: 0; margin: 0;
+}
+
+td.examples {
+  font-size: 0.8rem;
 }
