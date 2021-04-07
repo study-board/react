@@ -6,6 +6,8 @@ const Card = (props) => {
 
     const handleDrag = (e) => {
 
+        console.dir(e);
+
         props.updateCards(
             props.cards.map((c) => {
 
@@ -15,8 +17,8 @@ const Card = (props) => {
 
                 return {
                     ...c,
-                    x: e.x/screen.width,
-                    y: e.y/screen.height
+                    x: (e.x - props.card.width + e.offsetX)/window.screen.width,
+                    y: (e.y - props.card.height - e.offsetY)/window.screen.height
                 }
 
             })
@@ -24,11 +26,16 @@ const Card = (props) => {
         
     }
 
+    console.dir({
+        x: props.card.x ? props.card.x * window.screen.width : 0,
+        y: props.card.y ? props.card.y * window.screen.height : props.index * 10
+    })
+
     return (
         <Draggable
             defaultPosition={{
-                x: props.card.x ? props.card.x * screen.width : 0,
-                y: props.card.y ? props.card.y * screen.height : props.index * 10
+                x: props.card.x ? props.card.x * window.screen.width : 0,
+                y: props.card.y ? props.card.y * window.screen.height : props.index * 10
             }}
             onStop={handleDrag}
         >

@@ -59,7 +59,7 @@ function App() {
     );
 
     navigator.share({
-      url: "https://" + document.location.hostname + "?" + newSearch.toString(),
+      url: /*"https://" + document.location.hostname + */ "?" + newSearch.toString(),
       text: `Check out my StudyBoard with ${cards.length} cards!`,
       title: `StudyBoard with ${cards.length} cards`
     });
