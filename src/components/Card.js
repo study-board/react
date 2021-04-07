@@ -15,8 +15,8 @@ const Card = (props) => {
 
                 return {
                     ...c,
-                    x: e.x,
-                    y: e.y
+                    x: e.x/screen.width,
+                    y: e.y/screen.height
                 }
 
             })
@@ -26,7 +26,10 @@ const Card = (props) => {
 
     return (
         <Draggable
-            defaultPosition={{x: props.card.x || 0, y: props.card.y || (props.index * 50)}}
+            defaultPosition={{
+                x: props.card.x ? props.card.x * screen.width : 0,
+                y: props.card.y ? props.card.y * screen.height : props.index * 10
+            }}
             onStop={handleDrag}
         >
             <div className="card">
