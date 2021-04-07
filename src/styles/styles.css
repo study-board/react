@@ -36,6 +36,8 @@ body {
   cursor: pointer;
 
   margin: 5px;
+  margin-left: 0;
+  margin-right: 10px;
 
 }
 
@@ -60,6 +62,11 @@ body {
   color: black;
 }
 
+.button.blue {
+  background-color: #007EA7;
+  color: white;
+}
+
 .link-button {
   color: blue;
   text-decoration: underline;
@@ -73,7 +80,7 @@ body {
   font-family: var(--font);
 }
 
-.App .newCard {
+.App .btm-right-btns {
 
   position: absolute;
   bottom: 15px;
@@ -215,4 +222,12 @@ input[type=range] {
 
 td.examples {
   font-size: 0.8rem;
+}
+
+a.spaced {
+  margin: 0 5px;
+}
+
+tr.small {
+  font-size: 0.9rem;
 }

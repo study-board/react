@@ -2,6 +2,11 @@
 const config = {
 
     defaultBgVideoURL: "https://www.youtube.com/watch?v=0k23DVv_xsA",
+    toastOptions: {
+        position: "top-right",
+        autoClose: 1000,
+        newestOnTop: true
+    },
     defaultCards: [
 
         // {
@@ -93,6 +98,35 @@ const config = {
             src: "https://youtube.com/embed/videoseries?list={{id}}",
             width: 300,
             height: 300
+        }
+
+    ],
+
+    newVideoSupportedSites: [
+
+        {
+            displayName: "YouTube",
+            url: "https://youtube.com"
+        },
+        
+        {
+            displayName: "Vimeo",
+            url: "https://vimeo.com/"
+        },
+
+        {
+            displayName: "Twitch",
+            url: "https://twitch.tv"
+        },
+
+        {
+            displayName: "Wistia",
+            url: "https://wistia.com/"
+        },
+
+        {
+            displayName: "Raw video URLs",
+            url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
         }
 
     ]
