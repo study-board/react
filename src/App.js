@@ -100,12 +100,11 @@ function App() {
         { cards.map((card, index) => (localStorage.getItem(card.showOnce) ? null : (
 
           <Card
-            width={card.width}
-            height={card.height}
-            title={card.title}
-            url={card.url}
+            card={card}
+            cards={cards}
             key={index}
-            permanent={card.permanent}
+            index={index}
+            updateCards={updateCards}
             removeAction={ () => {
               if (card.showOnce) {
                 localStorage.setItem(card.showOnce, true);
