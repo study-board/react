@@ -1,7 +1,7 @@
 
 const config = {
 
-    defaultBgVideoURL: "https://www.youtube.com/watch?v=0k23DVv_xsA",
+    defaultBgVideoURL: "https://www.youtube.com/watch?v=7KXGZAEWzn0?t=105",
     toastOptions: {
         position: "top-right",
         autoClose: 1000,
