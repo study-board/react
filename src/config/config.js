@@ -7,8 +7,8 @@ const config = {
             title: "Guide card",
             url: "assets/cards/guide.html",
             permanent: false,
-            width: "500px",
-            height: "500px",
+            width: "550px",
+            height: "550px",
             showOnce: "guide-card-once-only-2427-04-21"
         }
     ],
