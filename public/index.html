@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+    <script>
+
+      if (screen.width <= 499) {
+        if (!localStorage.getItem("UI-DidShowMobileWarning")) {
+          localStorage.setItem("UI-DidShowMobileWarning", true);
+          document.location = "assets/pages/mobile/index.html";
+        }
+      }
+
+    </script>
+
     <!-- Primary Meta Tags -->
     <title>Study Board - a calming study organizer for students</title>
     <meta name="title" content="Study Board - a calming study organizer for students">
