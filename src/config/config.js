@@ -31,7 +31,7 @@ const config = {
 
         {
             displayName: "YouTube Music playlist",
-            src: "http://youtube.com/embed/videoseries?list=PL4fGSI1pDJn6puJdseH2Rt9sMvt9E2M4i",
+            src: "https://youtube.com/embed/videoseries?list=PL4fGSI1pDJn6puJdseH2Rt9sMvt9E2M4i",
             width: 300,
             height: 300
         }
