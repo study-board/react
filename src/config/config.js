@@ -3,6 +3,16 @@ const config = {
 
     defaultBgVideoURL: "https://www.youtube.com/watch?v=0k23DVv_xsA",
     defaultCards: [
+
+        // {
+        //     title: "Default card example - code only", # This is the title of the card
+        //     url: "assets/cards/doesnotexist.html", # URL relative to domain root
+        //     permanent: false, # If the card is permanent (cannot be closed)
+        //     width: "500px", # Width, CSS compatible
+        //     height: "500px", # Height, CSS compatible
+        //     showOnce: "default-card-code-example-showonce-123123" # This must be a unique value to the card. If it is changed, the card will be shown again.
+        // },
+
         {
             title: "Guide card",
             url: "assets/cards/guide.html",
@@ -31,7 +41,7 @@ const config = {
 
         {
             displayName: "YouTube Music playlist",
-            src: "https://youtube.com/embed/videoseries?list=PL4fGSI1pDJn6puJdseH2Rt9sMvt9E2M4i",
+            src: "https://youtube.com/embed/videoseries?list=PL4fGSI1pDJn6O1LS0XSdF3RyO0Rq_LDeI",
             width: 300,
             height: 300
         }

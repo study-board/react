@@ -73,20 +73,23 @@ const NewCardModal = (props) => {
                     <tr>
 
                         <td><label htmlFor="new">Card embed URL</label></td>
-                        <td><input value={EFSrc} required={true} onChange={updateSimulation} type="url" id="new" /></td>
+                        <td><input required={true} onBlur={updateSimulation} type="url" id="new" /></td>
 
                     </tr>
 
                     <tr>
 
-                        <td class="examples" colSpan={2}>
+                        <td className="examples" colSpan={2}>
 
                             Examples: 
-                            { config.exampleCards.map((c) => (
-                                <button className="link-button" onClick={(e) => {
+                            { config.exampleCards.map((c,i) => (
+                                <button key={i} className="link-button" onClick={(e) => {
                                     c.height && setEFHeight(c.height);
                                     c.width && setEFWidth(c.width);
-                                    c.src && setEFSrc(c.src);
+                                    if (c.src) {
+                                        setEFSrc(c.src);
+                                        document.getElementById("new").value = c.src;
+                                    }
                                     e.preventDefault();
                                 }}>{c.displayName}</button>
                             )) }
@@ -113,7 +116,7 @@ const NewCardModal = (props) => {
 
             </table>
 
-            <h3>Card simulation</h3>
+            <h3>Card simulation </h3>
 
             <iframe
                 className="example-frame"
