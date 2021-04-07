@@ -45,25 +45,27 @@
  
          <h1>Thanks for your interest in StudyBoard.</h1>
          <p>
-             <b>Unfortunately, you're either on mobile or have a small screen, which means you won't get the whole StudyBoard experience.</b>
+             <b>You're seeing this because we've determined your screen size of <span class="w">[loading]</span> may not be enough to view StudyBoard effectively.</b>
          </p>
 
          <p>
-            StudyBoard is optimised for laptops and large monitors. Your current screen width is <span id="w">[loading]</span>, which we have determined is less than optimal to run StudyBoard.
+            StudyBoard is optimised for laptops and large monitors. Elements like cards and the background video are designed to be viewed with ample space and clearance. Your current screen width of <span class="w">[loading]</span> may not be able to support that experience.
          </p>
 
          <p>
-             If you're sure, you can <a href="#" onclick="history.back()">continue to StudyBoard</a>. <b>You won't see this warning again unless you clear your cookies</b>. Please don't contact us with issues with mobile sizing in this case.
+             If you're sure, you can <a href="#" onclick="localStorage.setItem('UI-DidShowMobileWarning', true);window.location.href = '../../../'">continue to StudyBoard</a>. If you do so, <b>you won't see this warning again unless you clear your cookies</b>. Please don't contact us about issues with mobile sizing in this case.
          </p>
 
          <p>
-             If mobile compatibility is important to you, <a href="mailto:hello@srg.codes">let us know</a>.
+             If mobile compatibility is important to you, <a href="mailto:hello@srg.codes">let us know</a> and we'll take your opinion into account when making product decisions.
          </p>
 
     </main>
 
     <script>
-        document.getElementById("w").innerText = screen.width + "px";
+        document.querySelectorAll(".w").forEach((e) => {
+            e.innerText = screen.width + "px"
+        })
     </script>
  
  </body>
